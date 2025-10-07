@@ -1,28 +1,29 @@
 <template>
-  <div class="min-h-screen bg-gray-100 p-4">
-    <div class="max-w-6xl mx-auto py-8">
+  <div class="min-h-screen bg-gray-100 p-3 sm:p-4 md:p-6">
+    <div class="max-w-6xl mx-auto py-4 sm:py-6 md:py-8">
       <!-- Game Header -->
-      <div class="mb-6">
-        <div class="flex items-center justify-between mb-4">
-          <h1 class="text-3xl font-bold text-gray-900">{{ gameStore.selectedCategory?.name }}</h1>
-          <BaseButton variant="secondary" size="sm" @click="pauseGame">
-            ⏸️ Pause
+      <div class="mb-4 sm:mb-6">
+        <div class="flex items-center justify-between gap-2 mb-4">
+          <h1 class="text-lg sm:text-2xl md:text-3xl font-bold text-gray-900 line-clamp-2">{{ gameStore.selectedCategory?.name }}</h1>
+          <BaseButton variant="secondary" size="sm" @click="pauseGame" class="flex-shrink-0">
+            <span class="hidden sm:inline">⏸️ Pause</span>
+            <span class="sm:hidden">⏸️</span>
           </BaseButton>
         </div>
       </div>
 
       <!-- Score Board -->
-      <div class="mb-8">
+      <div class="mb-6 sm:mb-8">
         <ScoreBoard :players="gameStore.players" />
       </div>
 
       <!-- Main Game Area -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         <!-- Player Input Section -->
         <div class="lg:col-span-2">
           <BaseCard variant="elevated">
             <template #header>
-              <h2 class="text-xl font-bold text-gray-900">
+              <h2 class="text-lg sm:text-xl font-bold text-gray-900">
                 {{ gameStore.currentPlayer?.name }}'s Turn
               </h2>
             </template>

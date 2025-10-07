@@ -1,16 +1,16 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-4">
-    <div class="max-w-4xl mx-auto py-8">
+  <div class="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-4 sm:p-6 md:p-8">
+    <div class="max-w-4xl mx-auto py-4 sm:py-6 md:py-8">
       <!-- Header -->
-      <div class="text-center mb-8">
-        <h1 class="text-4xl font-bold text-white mb-2">Game Setup</h1>
-        <p class="text-blue-100">Configure your game settings</p>
+      <div class="text-center mb-6 sm:mb-8">
+        <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Game Setup</h1>
+        <p class="text-sm sm:text-base text-blue-100">Configure your game settings</p>
       </div>
 
       <!-- Setup Form -->
       <BaseCard variant="elevated">
         <template #header>
-          <h2 class="text-2xl font-bold text-gray-900">Player Information</h2>
+          <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Player Information</h2>
         </template>
 
         <div class="space-y-6">
@@ -39,20 +39,20 @@
             <label class="block text-sm font-medium text-gray-700 mb-2">
               Select Category <span class="text-red-500">*</span>
             </label>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
               <button
                 v-for="category in freeCategories"
                 :key="category.id"
                 :class="[
-                  'text-left p-4 rounded-lg border-2 transition-all',
+                  'text-left p-3 sm:p-4 rounded-lg border-2 transition-all touch-manipulation',
                   selectedCategoryId === category.id
                     ? 'border-blue-600 bg-blue-50'
-                    : 'border-gray-200 hover:border-blue-300 bg-white',
+                    : 'border-gray-200 hover:border-blue-300 bg-white active:bg-blue-50',
                 ]"
                 @click="selectedCategoryId = category.id"
               >
-                <div class="font-semibold text-gray-900">{{ category.name }}</div>
-                <div class="text-sm text-gray-600 mt-1">{{ category.description }}</div>
+                <div class="font-semibold text-sm sm:text-base text-gray-900">{{ category.name }}</div>
+                <div class="text-xs sm:text-sm text-gray-600 mt-1">{{ category.description }}</div>
               </button>
             </div>
             <p v-if="categoryError" class="mt-2 text-sm text-red-600">{{ categoryError }}</p>

@@ -1,10 +1,10 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center p-4">
+  <div class="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center p-4 sm:p-6 md:p-8">
     <div class="max-w-2xl w-full">
       <!-- Title -->
-      <div class="text-center mb-12">
-        <h1 class="text-6xl font-bold text-white mb-4">Football 501</h1>
-        <p class="text-xl text-blue-100">Darts-inspired football trivia game</p>
+      <div class="text-center mb-8 sm:mb-10 md:mb-12">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2 sm:mb-4">Football 501</h1>
+        <p class="text-base sm:text-lg md:text-xl text-blue-100">Darts-inspired football trivia game</p>
       </div>
 
       <!-- Main Menu Card -->
@@ -41,18 +41,18 @@
       </BaseCard>
 
       <!-- Quick Info -->
-      <div class="grid grid-cols-3 gap-4 text-center">
-        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-4">
-          <div class="text-3xl font-bold text-white">2</div>
-          <div class="text-sm text-blue-100">Players</div>
+      <div class="grid grid-cols-3 gap-2 sm:gap-4 text-center">
+        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
+          <div class="text-2xl sm:text-3xl font-bold text-white">2</div>
+          <div class="text-xs sm:text-sm text-blue-100">Players</div>
         </div>
-        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-4">
-          <div class="text-3xl font-bold text-white">501</div>
-          <div class="text-sm text-blue-100">Starting Score</div>
+        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
+          <div class="text-2xl sm:text-3xl font-bold text-white">501</div>
+          <div class="text-xs sm:text-sm text-blue-100">Starting Score</div>
         </div>
-        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-4">
-          <div class="text-3xl font-bold text-white">9</div>
-          <div class="text-sm text-blue-100">Free Categories</div>
+        <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-3 sm:p-4">
+          <div class="text-2xl sm:text-3xl font-bold text-white">9</div>
+          <div class="text-xs sm:text-sm text-blue-100">Free Categories</div>
         </div>
       </div>
     </div>
