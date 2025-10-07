@@ -1,19 +1,22 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 p-4 sm:p-6 md:p-8">
-    <div class="max-w-4xl mx-auto py-4 sm:py-6 md:py-8">
+  <div class="min-h-screen bg-gradient-to-br from-pitch-900 via-pitch-800 to-dartboard-black p-4 sm:p-6 md:p-8 relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 bg-pitch-pattern opacity-10" style="background-size: 50px 50px;"></div>
+
+    <div class="max-w-4xl mx-auto py-4 sm:py-6 md:py-8 relative z-10">
       <!-- Header -->
       <div class="text-center mb-6 sm:mb-8">
-        <h1 class="text-3xl sm:text-4xl font-bold text-white mb-2">Game Setup</h1>
-        <p class="text-sm sm:text-base text-blue-100">Configure your game settings</p>
+        <h1 class="text-4xl sm:text-5xl font-black text-white mb-2 tracking-tight" style="text-shadow: 0 0 30px rgba(220, 38, 38, 0.5);">GAME SETUP</h1>
+        <p class="text-sm sm:text-base text-pitch-200 font-semibold uppercase tracking-wide">Configure Your Match</p>
       </div>
 
       <!-- Setup Form -->
-      <BaseCard variant="elevated">
-        <template #header>
-          <h2 class="text-xl sm:text-2xl font-bold text-gray-900">Player Information</h2>
-        </template>
+      <div class="bg-gradient-to-b from-gray-900 to-dartboard-black border-2 border-pitch-600 rounded-2xl shadow-pitch overflow-hidden">
+        <div class="bg-gradient-to-r from-dartboard-red to-pitch-700 px-6 py-4 border-b-2 border-dartboard-gold">
+          <h2 class="text-xl sm:text-2xl font-black text-white">Player Information</h2>
+        </div>
 
-        <div class="space-y-6">
+        <div class="p-6 sm:p-8 space-y-6">
           <!-- Player 1 Name -->
           <BaseInput
             id="player1"
@@ -36,40 +39,54 @@
 
           <!-- Category Selection -->
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2">
-              Select Category <span class="text-red-500">*</span>
+            <label class="block text-sm font-bold text-pitch-400 mb-3 uppercase tracking-wide">
+              Select Category <span class="text-dartboard-red">*</span>
             </label>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
               <button
                 v-for="category in freeCategories"
                 :key="category.id"
                 :class="[
-                  'text-left p-3 sm:p-4 rounded-lg border-2 transition-all touch-manipulation',
+                  'text-left p-4 rounded-xl border-2 transition-all touch-manipulation transform',
                   selectedCategoryId === category.id
-                    ? 'border-blue-600 bg-blue-50'
-                    : 'border-gray-200 hover:border-blue-300 bg-white active:bg-blue-50',
+                    ? 'border-pitch-500 bg-gradient-to-br from-pitch-900 to-pitch-800 shadow-glow-green scale-105'
+                    : 'border-gray-700 bg-gray-800 hover:border-pitch-600 hover:bg-gray-750 active:scale-95',
                 ]"
                 @click="selectedCategoryId = category.id"
               >
-                <div class="font-semibold text-sm sm:text-base text-gray-900">{{ category.name }}</div>
-                <div class="text-xs sm:text-sm text-gray-600 mt-1">{{ category.description }}</div>
+                <div :class="[
+                  'font-bold text-sm sm:text-base mb-1',
+                  selectedCategoryId === category.id ? 'text-pitch-300' : 'text-white'
+                ]">
+                  {{ category.name }}
+                </div>
+                <div :class="[
+                  'text-xs sm:text-sm',
+                  selectedCategoryId === category.id ? 'text-pitch-400' : 'text-gray-400'
+                ]">
+                  {{ category.description }}
+                </div>
               </button>
             </div>
-            <p v-if="categoryError" class="mt-2 text-sm text-red-600">{{ categoryError }}</p>
+            <p v-if="categoryError" class="mt-3 text-sm text-dartboard-red font-semibold">{{ categoryError }}</p>
           </div>
         </div>
 
-        <template #footer>
-          <div class="flex justify-between">
-            <BaseButton variant="outline" @click="goBack">
-              Cancel
-            </BaseButton>
-            <BaseButton variant="primary" size="lg" @click="startGame">
-              Start Game
-            </BaseButton>
-          </div>
-        </template>
-      </BaseCard>
+        <div class="px-6 sm:px-8 py-6 bg-gray-900 border-t-2 border-gray-800 flex flex-col sm:flex-row justify-between gap-3">
+          <button
+            @click="goBack"
+            class="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold rounded-xl border-2 border-gray-700 hover:border-gray-600 transition-all duration-300"
+          >
+            Cancel
+          </button>
+          <button
+            @click="startGame"
+            class="px-8 py-3 bg-gradient-to-r from-dartboard-red to-red-600 hover:from-red-600 hover:to-dartboard-red text-white font-bold rounded-xl shadow-dartboard transition-all duration-300 transform hover:scale-105 hover:shadow-glow-red text-lg"
+          >
+            Start Game
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
